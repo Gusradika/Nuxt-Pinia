@@ -11,13 +11,10 @@ export const useAuthStore = defineStore(
 
     async function login(email: string, password: string) {
       try {
-        const res: any = await $fetch(
-          `${config.public.apiBase}/api/auth/login`,
-          {
-            method: "POST",
-            body: { email, password },
-          }
-        );
+        const res: any = await $fetch(`${config.public.apiBase}/auth/login`, {
+          method: "POST",
+          body: { email, password },
+        });
 
         token.value = res.access_token;
         user.value = res.user;
@@ -31,7 +28,7 @@ export const useAuthStore = defineStore(
     async function register(email: string, password: string) {
       try {
         const res: any = await $fetch(
-          `${config.public.apiBase}/api/auth/register`,
+          `${config.public.apiBase}/auth/register`,
           {
             method: "POST",
             body: { email, password },
