@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useMyAuthStore = defineStore(
+export const useAuthStore = defineStore(
   "auth",
   () => {
     const user = ref<{ email: string } | null>(null);
@@ -8,15 +8,14 @@ export const useMyAuthStore = defineStore(
     const isLoggedIn = computed(() => !!user.value);
 
     function login(email: string, password: string) {
-      // Simulasi login
       if (email && password) {
         user.value = { email };
         return true;
       }
       return false;
     }
+
     function register(email: string, password: string) {
-      // Simulasi registrasi
       if (email && password) {
         user.value = { email };
         return true;
