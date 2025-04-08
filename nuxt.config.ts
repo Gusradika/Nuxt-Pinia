@@ -10,4 +10,9 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ["./stores/**"],
   },
+  runtimeConfig: {
+    public: {
+      apiBase: "http://localhost:3001", // URL ke backend NestJS kamu
+    },
+  },
 });
